@@ -20,7 +20,7 @@ fetch(`https://pokeapi.co/api/v2/pokemon/?offset=${offset}&limit=20`)
     })
     .catch(error => console.error('Error:', error));
 
-function obtenerLista(url) {
+function obtenerListaPokemones(url) {
     fetch(url)
         .then(response => response.json())
         .then(data => {
@@ -78,7 +78,7 @@ function manejarClickPrevio() {
     }
 
     const url = `https://pokeapi.co/api/v2/pokemon/?offset=${offset}&limit=20`;
-    obtenerLista(url);
+    obtenerListaPokemones(url);
 }
 
 function manejarClickSiguiente() {
@@ -88,7 +88,7 @@ function manejarClickSiguiente() {
     offset = offset + 20;
 
     const url = `https://pokeapi.co/api/v2/pokemon/?offset=${offset}&limit=20`;
-    obtenerLista(url);
+    obtenerListaPokemones(url);
 }
 
 botonPrevio.addEventListener('click', manejarClickPrevio);
