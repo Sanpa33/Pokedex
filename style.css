@@ -55,23 +55,23 @@ body {
     color: #fff;
 }
 
-.pokemon-detail-container {
+.pokemon-contenedor-detalles {
     flex: 2;
     text-align: center;
 }
 
-.pokemon-detail-container h2 {
+.pokemon-contenedor-detalles h2 {
     color: #ff6f00;
     margin-bottom: 20px;
 }
 
-.pokemon-detail-container img {
+.pokemon-contenedor-detalles img {
     width: 150px;
     height: 150px;
     margin-bottom: 20px;
 }
 
-.pokemon-detail-container h3 {
+.pokemon-contenedor-detalles h3 {
     font-size: 1.5rem;
     color: #555;
 }
