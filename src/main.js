@@ -1,32 +1,12 @@
 let offset = 0;
-
-fetch(`https://pokeapi.co/api/v2/pokemon/?offset=${offset}&limit=20`)
-    .then(response => response.json())
-    .then(data => {
-
-        const ul = document.getElementById("pokemon-lista");
-
-        data.results.forEach(pokemon => {
-            const li = document.createElement('li');
-            li.textContent = pokemon.name;
-
-            li.addEventListener('click', () => {
-                mostrarDetallesPokemon(pokemon.url);
-            });
-
-            ul.appendChild(li);
-        });
-
-    })
-    .catch(error => console.error('Error:', error));
-
+ 
 function obtenerListaPokemones(url) {
     fetch(url)
         .then(response => response.json())
         .then(data => {
 
             const ul = document.getElementById("pokemon-lista");
-            ul.textContent = "";
+            ul.innerHTML = ""; // Limpiamos la lista anterior
 
             data.results.forEach(pokemon => {
                 const li = document.createElement('li');
@@ -38,6 +18,11 @@ function obtenerListaPokemones(url) {
 
                 ul.appendChild(li);
             });
+
+            // Mostramos los detalles del primer pokémon de la lista nueva
+            if (data.results.length > 0) {
+                mostrarDetallesPokemon(data.results[0].url);
+            }
 
         })
         .catch(error => console.error('Error:', error));
@@ -70,9 +55,6 @@ const botonPrevio = document.getElementById('boton-previo');
 const botonSiguiente = document.getElementById('boton-siguiente');
 
 function manejarClickPrevio() {
-    const listaPokemon = document.getElementById("pokemon-lista");
-    listaPokemon.textContent = "";
-
     if (offset !== 0) {
         offset = offset - 20;
     }
@@ -82,9 +64,6 @@ function manejarClickPrevio() {
 }
 
 function manejarClickSiguiente() {
-    const listaPokemon = document.getElementById("pokemon-lista");
-    listaPokemon.textContent = "";
-
     offset = offset + 20;
 
     const url = `https://pokeapi.co/api/v2/pokemon/?offset=${offset}&limit=20`;
@@ -93,3 +72,6 @@ function manejarClickSiguiente() {
 
 botonPrevio.addEventListener('click', manejarClickPrevio);
 botonSiguiente.addEventListener('click', manejarClickSiguiente);
+
+// Carga la lista inicial de Pokémon al iniciar la página
+obtenerListaPokemones(`https://pokeapi.co/api/v2/pokemon/?offset=${offset}&limit=20`);
