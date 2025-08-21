@@ -2,6 +2,7 @@
   "name": "pokedex",
   "version": "1.0.0",
   "description": "Pokedex",
+  "type": "module",
   "main": "index.html",
   "scripts": {
     "serve": "http-server ."
