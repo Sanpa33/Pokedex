@@ -38,7 +38,7 @@ export function mostrarDetallesPokemon(url) {
             const pokemonTipo = document.getElementById("pokemon-tipo");
 
             
-            pokemonImagen.src = data.sprites.front_default; 
+            pokemonImagen.src = data.sprites.other['official-artwork'].front_default;
             pokemonImagen.alt = data.name; 
             pokemonDetailContainer.textContent = `Detalles de ${data.name}`; 
             pokemonNumero.textContent = `Número de Pokédex: ${data.id}`
