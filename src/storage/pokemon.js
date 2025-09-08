@@ -30,7 +30,6 @@ export function cargarPokemon(id) {
 
 /**
  * @param {Number} offset
- * @param {Number} limite
  * @return {ListadoPokemones}
  */
 export function cargarPokemones(offset = 0) {
