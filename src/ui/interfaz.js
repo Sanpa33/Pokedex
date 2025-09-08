@@ -9,8 +9,6 @@ export async function obtenerListaPokemones(offset) {
 
     const listaPokemones = await cargarPokemones(offset)
 
-    console.log(listaPokemones.nombresPokemones)
-
     const ul = document.getElementById("pokemon-lista");
     ul.innerHTML = "";
     
