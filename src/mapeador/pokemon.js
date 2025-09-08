@@ -1,4 +1,4 @@
-import Pokemon from "..entidades/pokemon.js";
+import Pokemon from "../entidades/pokemon.js";
 import Movimiento from "../entidades/moviemiento.js";
 import ListadoPokemones from "../entidades/listadoPokemones.js";
 
