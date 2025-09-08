@@ -8,14 +8,21 @@ import ListadoPokemones from "../entidades/listadoPokemones.js";
  */
 
 export function mapearPokemon(datosApi) {
-  const {
-    id,
-    name: nombre,
-    sprites: { front_default: fotoPrincipal },
-    types: tipos,
-    abilities: habilidades,
-    moves: movimientos,
-  } = datosApi;
+  
+    const {
+      id,
+      name: nombre,
+      types: tipos,
+      abilities: habilidades,
+      moves: movimientos,
+      sprites: {
+        other: {
+          ["official-artwork"]: {
+            front_default: fotoPrincipal,
+          },
+        },
+      },
+    } = datosApi;
 
   return new Pokemon(
     id,
