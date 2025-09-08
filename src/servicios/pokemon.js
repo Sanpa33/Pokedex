@@ -16,7 +16,7 @@ import {
   guardarPokemones,
 } from '../storage/pokemon.js';
 
-import { mapearListadoPokemones, mapearPokemon } from '../mapeadores/pokemon.js';
+import { mapearListadoPokemones, mapearPokemon } from '../mapeador/pokemon.js';
 
 /**
  * @param {String} id
