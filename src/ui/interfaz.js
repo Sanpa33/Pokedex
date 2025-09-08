@@ -42,12 +42,15 @@ export async function mostrarDetallesPokemon(nombre) {
     const $pokemonDetailContainer = document.querySelector(".pokemon-contenedor-detalles h2");
     const $pokemonNumero = document.getElementById("pokemon-numero");
     const $pokemonTipo = document.getElementById("pokemon-tipo");
+    const $pokemonHabilidades = document.getElementById("pokemon-habilidades");
 
 
     $pokemonImagen.src = pokemon.foto
     $pokemonImagen.alt = pokemon.nombre; 
     $pokemonDetailContainer.textContent = `Detalles de ${pokemon.nombre}`; 
-    $pokemonNumero.textContent = `Número de Pokédex: ${pokemon.id}`
+    $pokemonNumero.textContent = `Número de Pokédex: ${pokemon.id}`;
+    const habilidades = pokemon.habilidades.map(habilidad => habilidad).join(', ');
+    $pokemonHabilidades.textContent = `Habilidades ${habilidades}` 
     const tipos = pokemon.tipos.map(tipoInfo => tipoInfo).join(', ');
     $pokemonTipo.textContent = `Tipo: ${tipos}`;
 
